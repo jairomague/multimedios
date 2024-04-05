@@ -1,0 +1,83 @@
+*{
+    box-sizing: border-box;
+}
+
+.borderstilo{
+    border: 1px solid black;
+}
+.contenedor-tabla {
+    max-width: 100%;
+    overflow-x: auto;
+}
+.horario, .horario th, .horario td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 8px;
+}
+
+.horario th {
+    font-weight: bold;
+    background-color: chocolate;
+}
+.horario td:first-child {
+    font-weight: bold;
+    background-color: rgb(211, 160, 124);
+}
+.abierto {
+    background-color: rgb(122, 217, 122); /* Por defecto, establece el color de fondo en verde */
+}
+.cerrado {
+    background-color: rgb(210, 128, 128); /* Por defecto, establece el color de fondo en verde */
+}
+.col1{
+    width: 8.33%;
+}
+
+.col2{
+    width: 16.66%;
+}
+
+.col3{
+    width: 25%;
+}
+
+.col6{
+    width: 50%;
+}
+
+.col8{
+    width: 66.66%;
+}
+
+.col12{
+    width: 100%;
+}
+
+.space {
+    background-color: rgb(227, 211, 191);
+    float: left;
+    height: 100%;
+}
+
+
+.header{
+    background-color: rgb(212, 235, 165);
+    padding: 10px;
+    height: 100px;
+}
+
+.footer{
+    background-color: darkgray;
+    padding: 5px;
+    height: 100px;
+}
+
+.centro{
+    background-color: rgb(227, 211, 191);
+    height: auto;
+}
+img{
+
+    width: 700px;
+    height: auto;
+}
