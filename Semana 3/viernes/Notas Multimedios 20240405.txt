@@ -1,0 +1,42 @@
+Notas Multimedios 20240405
+
+Bootstrap
+
+Porqué se usa un framework
+
+Agilizar, producir rápido, estandarizar
+
+Exension Bootstrap 5 Quick Snippets
+	https://getbootstrap.com/docs/5.0/getting-started/introduction/
+	
+	
+ESCRIBIR b5 y tab
+
+-- Minificador css
+
+-- consejo
+
+0. div
+
+1. en el header bs5-nav-complete
+
+2. en el div bs5-carousel-caption
+
+3. agregar imagenes al carousel
+
+*. ir probando las opciones de bootsrap
+
+-----
+todo lo que se crea hay que hacerlo en un div class container
+
+formulario ,... b5-form
+
+ESTRUCTURA BASICA
+contenedor
+fil
+columnas
+
+
+intentar hacer de todo lo que se pueda
+
+justyfy-content-end etc, lign-items-start etc
