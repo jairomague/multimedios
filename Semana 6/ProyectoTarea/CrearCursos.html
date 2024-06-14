@@ -26,7 +26,85 @@
                 </div>
             </header>
             <main>
+                <div class="container min-vh-100">
+                    <div><h1>Ingrese la información solicitada</h1></div>
+                    <div class="row">
+                        <div id="mensajesSistema">
+                            
+                        </div>
+                        <form id="formulario">
+                            <div class="mb-3">
+                                <label for="" class="form-label">Nombre del curso</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="nombreCurso"
+                                    id="nombreCurso"
+                                    aria-describedby="helpId"
+                                    placeholder="Ingrese el nombre del curso"
+                                    required
+                                />
+                                <small id="helpId" class="form-text text-muted">Digita el nombre del curso</small>
+                            </div>
+                            <!--{ "nombre":"React 22", "descripcion":"React Junior", "tiempo":"10 Meses", "usuario":"profesor Mario" }--> 
+                            <div class="mb-3">
+                                <label for="" class="form-label">Descripción del curso</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="descripcion"
+                                    id="descripcion"
+                                    aria-describedby="helpId"
+                                    placeholder="Ingrese la descripcion del curso"
+                                    required
+                                />
+                                <small id="helpId" class="form-text text-muted">Digita la descripción del curso</small>
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Tiempo de duración del curso</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="tiempo"
+                                    id="tiempo"
+                                    aria-describedby="helpId"
+                                    placeholder="Ingrese la duración"
+                                    required
+                                />
+                                <small id="helpId" class="form-text text-muted">Digita la duración del curso</small>
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Usuario que imparte el curso</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="usuario"
+                                    id="usuario"
+                                    aria-describedby="helpId"
+                                    placeholder="Ingrese el nombre del usuario"
+                                    required
+                                />
+                                <small id="helpId" class="form-text text-muted">Digita el nombre del usuario</small>
+                            </div>
+                            <div class="mb-3">
+                                <button
+                                    type="submit"
+                                    class="btn btn-primary"
+                                >
+                                    Guardar
+                                </button>
+                                <button
+                                    type="reset"
+                                    class="btn btn-danger"
+                                >
+                                    Reset
+                                </button>
+                                
+                            </div>
+                        </form>
 
+                    </div>
+                </div>
 
             </main>
             <footer>

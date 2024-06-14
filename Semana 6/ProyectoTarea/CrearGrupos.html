@@ -26,7 +26,45 @@
                 </div>
             </header>
             <main>
+                <div class="container min-vh-100">
+                    <div><h1>Ingrese la información solicitada</h1></div>
+                    <div class="row">
+                        <div id="mensajesSistema">
+                            
+                        </div>
+                        <form id="formulario">
+                            <div class="mb-3">
+                                <label for="" class="form-label">Nombre del grupo</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="nombreGrupo"
+                                    id="nombreGrupo"
+                                    aria-describedby="helpId"
+                                    placeholder="Ingrese el nombre del grupo"
+                                    required
+                                />
+                                <small id="helpId" class="form-text text-muted">Digita el nombre del grupo</small>
+                            </div>
+                            <div class="mb-3">
+                                <button
+                                    type="submit"
+                                    class="btn btn-primary"
+                                >
+                                    Guardar
+                                </button>
+                                <button
+                                    type="reset"
+                                    class="btn btn-danger"
+                                >
+                                    Reset
+                                </button>
+                                
+                            </div>
+                        </form>
 
+                    </div>
+                </div>
 
             </main>
             <footer>

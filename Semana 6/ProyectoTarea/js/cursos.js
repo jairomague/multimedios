@@ -7,12 +7,19 @@ let nombrePagina = document.title;
 let nombreModuloListar = "Cursos";
 let nombreModuloCrear = "Crear Cursos";
 
+// FORMULARIO AGREGAR
+let formulario = document.getElementById('formulario');
+let formularioEditar = document.getElementById('formularioEditar');
+
 // PROPIEDADES API
 let url = "https://paginas-web-cr.com/Api/apis/";
 let listar = "ListaCurso.php";
 let insertar = "InsertarCursos.php";
 let actualizar = "ActualizarCursos.php";
+let borrar = "BorrarCursos.php";
 
+let modalEditar;
+let modalEliminar;
 
 let spinner = `
                 <button class="btn btn-primary" type="button" disabled>
@@ -24,15 +31,196 @@ let spinner = `
 
 // EVENTOS INICIO
 
+if (nombrePagina == nombreModuloCrear) {
+    // esta observando el elemento submit
+    formulario.addEventListener('submit',
+    function (evento) {
+        evento.preventDefault(); // detiene la recarga por defecto
+
+        let datos = new FormData(formulario); // captura datos
+        let datosEnviar = {
+            nombre: datos.get('nombreCurso'),
+            descripcion: datos.get('descripcion'),
+            tiempo: datos.get('tiempo'),
+            usuario: datos.get('usuario')
+        }
+        fetch(url + insertar, 
+            {
+                method: 'POST',
+                body: JSON.stringify(datosEnviar)
+            }
+        )
+        .then(respuesta=>respuesta.json())
+        .then( (datosRespuesta) => {
+            mensajeInsertar(datosRespuesta);
+        })
+        .catch(console.log)
+    })
+}
+
+//LISTO EDITAR
+if (nombrePagina == nombreModuloListar) {
+    formularioEditar.addEventListener('submit',
+        function (evento) {
+            evento.preventDefault();
+            let datos = new FormData(formularioEditar);
+            let datosEnviar = {
+                id: datos.get('id'),
+                nombre: datos.get('name'),
+                descripcion: datos.get('descripcion'),
+                tiempo: datos.get('tiempo'),
+                usuario: datos.get('usuario')
+            }
+            fetch(url + actualizar,
+                {
+                    method: 'POST',
+                    body: JSON.stringify(datosEnviar)
+                }
+            )
+            .then(respuesta=>respuesta.json())
+            .then( (datosRespuesta) => {
+                mensajeActualizar(datosRespuesta);
+                modalEditar.hide();
+            })
+            .catch(console.log)
+        }
+    )
+}
+
 
 // EVENTOS FIN
 
+
 // FUNCIONES INICIO
+
+function limpiarForm() {
+    document.getElementById("nombreCurso").value = "";
+    document.getElementById("descripcion").value = "";
+    document.getElementById("tiempo").value = "";
+    document.getElementById("usuario").value = "";
+}
 
 function loadspinner() {
     document.getElementById("spinnerload").innerHTML = spinner;
 }
 
+function cerrarMensaje() {
+    mensajesSistema.innerHTML = "";
+}
+
+function mensajeInsertar(datos) {
+    if(datos.code == 200) {
+        mensajesSistema.innerHTML = 
+        
+        `<div
+            class="alert alert-success alert-dismissible fade show"
+            role="alert"
+        >
+            <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="alert"
+                aria-label="Close"
+            ></button>
+            <strong>Ingreso exitoso</strong>
+        </div>`
+    }
+    else {
+        mensajesSistema.innerHTML = 
+        
+        `<div
+            class="alert alert-warning alert-dismissible fade show"
+            role="alert"
+        >
+            <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="alert"
+                aria-label="Close"
+            ></button>
+            <strong>Error al registrar curso</strong>
+        </div>`
+    }
+    limpiarForm();
+    setTimeout(cerrarMensaje, 2500);
+
+}
+
+function mensajeActualizar(datos) {
+    if(datos.code == 200) {
+        mensajesSistema.innerHTML = 
+        
+        `<div
+            class="alert alert-success alert-dismissible fade show"
+            role="alert"
+        >
+            <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="alert"
+                aria-label="Close"
+            ></button>
+            <strong>Actualización exitosa</strong>
+        </div>`;
+
+        setTimeout(cargarDatos, 500);
+    }
+    else {
+        mensajesSistema.innerHTML = 
+        
+        `<div
+            class="alert alert-danger alert-dismissible fade show"
+            role="alert"
+        >
+            <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="alert"
+                aria-label="Close"
+            ></button>
+            <strong>Error al actualizar grupo</strong>
+        </div>`
+    }
+    setTimeout(cerrarMensaje, 2500);
+}
+
+function mensajeEliminar(datos) {
+    if(datos.code == 200) {
+        mensajesSistema.innerHTML = 
+        
+        `<div
+            class="alert alert-success alert-dismissible fade show"
+            role="alert"
+        >
+            <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="alert"
+                aria-label="Close"
+            ></button>
+            <strong>Borrado de curso exitoso</strong>
+        </div>`;
+
+        setTimeout(cargarDatos, 500);
+    }
+    else {
+        mensajesSistema.innerHTML = 
+        
+        `<div
+            class="alert alert-danger alert-dismissible fade show"
+            role="alert"
+        >
+            <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="alert"
+                aria-label="Close"
+            ></button>
+            <strong>Error al borrar curso</strong>
+        </div>`
+    }
+    setTimeout(cerrarMensaje, 2500);
+}
 
 function cargarDatos(){
     datosT.innerHTML = "";
@@ -65,7 +253,7 @@ function mostrarDatos(datos){
                             name=""
                             id=""
                             class="btn btn-danger"
-                            onclick = "eliminar('${iterator.id}')"
+                            onclick = "eliminar('${iterator.id}', '${iterator.nombre}' )"
                             role="button"
                             ><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-trash"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 7l16 0" /><path d="M10 11l0 6" /><path d="M14 11l0 6" /><path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" /><path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" /></svg></a
                         >
@@ -84,6 +272,43 @@ function mostrarDatos(datos){
     }
     document.getElementById("spinnerload").innerHTML = "";
 }
+
+function eliminar(id, nombre) {
+    modalEliminar = new bootstrap.Modal(document.getElementById("modalEliminar"));
+    modalEliminar.show();
+    document.getElementById("idEliminarInput").value = id;
+    document.getElementById("idEliminar").innerHTML = id;
+    document.getElementById("spanNombre").innerHTML = nombre;
+}
+
+function confirmarEliminar() {
+    let datosEnviar = {
+        id: document.getElementById("idEliminarInput").value
+    }
+    fetch(url + borrar, {
+        method: 'POST',
+        body: JSON.stringify(datosEnviar)
+    })
+    .then(respuesta=>respuesta.json())
+    .then( (datosRespuesta) => {
+            mensajeEliminar(datosRespuesta);
+            modalEliminar.hide();
+    })
+    .catch(console.log)
+}
+
+function editar(objeto) {
+    modalEditar = new bootstrap.Modal(document.getElementById("modalEditar"));
+    modalEditar.show();
+    objeto = JSON.parse(decodeURIComponent(objeto));
+    document.getElementById("id").value = objeto.id;
+    document.getElementById("spanID").innerHTML = objeto.id;
+    document.getElementById("name").value = objeto.nombre;
+    document.getElementById("descripcion").value = objeto.descripcion;
+    document.getElementById("tiempo").value = objeto.tiempo;
+    document.getElementById("usuario").value = objeto.usuario;
+}
+
 
 // FUNCIONES FIN
 

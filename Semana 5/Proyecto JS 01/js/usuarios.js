@@ -105,10 +105,6 @@ if (nombrePagina == nombreModuloListar) {
     })
 }
 
-
-
-
-
 // EVENTOS FIN
 
 
@@ -152,8 +148,6 @@ function mensajeInsertar(datos) {
     }
 }
 
-
-
 function mensajeActualizar(datos) {
     if(datos.code == 200) {
         //alert("Ingreso exitoso");
@@ -193,7 +187,6 @@ function mensajeActualizar(datos) {
         </div>`
     }
 }
-
 
 function cargarDatos(){
     datosT.innerHTML = "";
@@ -284,6 +277,4 @@ function confirmarEliminar() {
 if (nombrePagina == nombreModuloListar) {
     cargarDatos();
 }
-
-
 // METODOS FIN

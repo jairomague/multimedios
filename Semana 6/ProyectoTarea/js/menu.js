@@ -25,8 +25,6 @@ role="tablist"
     <div class="dropdown-menu">
         <a class="dropdown-item" href="ListaEstudiantes.html">Lista</a>
         <a class="dropdown-item" href="CrearEstudiantes.html">Crear</a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#tab4Id">Action</a>
     </div>
 </li>
 <li class="nav-item dropdown">
@@ -42,8 +40,6 @@ role="tablist"
     <div class="dropdown-menu">
         <a class="dropdown-item" href="ListaProfesores.html">Lista</a>
         <a class="dropdown-item" href="CrearProfesores.html">Crear</a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#tab4Id">Action</a>
     </div>
 </li>
 <li class="nav-item dropdown">
@@ -59,8 +55,6 @@ role="tablist"
     <div class="dropdown-menu">
         <a class="dropdown-item" href="ListaGrupos.html">Lista</a>
         <a class="dropdown-item" href="CrearGrupos.html">Crear</a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#tab4Id">Action</a>
     </div>
 </li>
 <li class="nav-item dropdown">
@@ -76,19 +70,7 @@ role="tablist"
     <div class="dropdown-menu">
         <a class="dropdown-item" href="ListaCursos.html">Lista</a>
         <a class="dropdown-item" href="CrearCursos.html">Crear</a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#tab4Id">Action</a>
     </div>
-</li>
-<li class="nav-item" role="presentation">
-    <a href="#tab5Id" class="nav-link" data-bs-toggle="tab"
-        >Another link</a
-    >
-</li>
-<li class="nav-item" role="presentation">
-    <a href="#" class="nav-link disabled" data-bs-toggle="tab"
-        >Disabled</a
-    >
 </li>
 </ul>`;
 
