@@ -70,18 +70,9 @@ if (nombrePagina == nombreModuloCrear) {
         )
         .then(respuesta=>respuesta.json())
         .then( (datosRespuesta) => {
-            //console.log(datosRespuesta)
             mensajeInsertar(datosRespuesta);
-            //mostrarDatos(datosRespuesta)
         })
         .catch(console.log)
-        //apis/InsertarUsuarios.php
-        //{ "name" : "marioaje", "password":"1234567890", "email":"marioaje@gmail.com" }
-
-        //console.log(datos.get('email'));
-        // estas dos formas son iguales
-        // email = document.getElementById("email").value;
-       // alert("1");
     })
     
 }

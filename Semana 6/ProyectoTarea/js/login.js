@@ -1,3 +1,8 @@
+// PROPIEDADES
+
+let url = 'https://paginas-web-cr.com/Api/apis/';
+let autenticar = 'AutenticarUsuario.php';
+
 document.getElementById('loginForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
@@ -10,7 +15,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     };
 
 
-    fetch('https://paginas-web-cr.com/Api/apis/AutenticarUsuario.php', {
+    fetch( url + autenticar, {
         method: 'POST',
         body: JSON.stringify(data)
     })

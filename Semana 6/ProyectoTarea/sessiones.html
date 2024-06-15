@@ -1,0 +1,33 @@
+<script>
+
+let datos = 31212;
+/*
+let datos = {
+    'llave': 'valor',
+    'nombre': 'jairo',
+    'verificado': true
+}
+*/
+
+localStorage.setItem('datos', datos);
+localStorage.set
+
+const getdatos = localStorage.getItem('datos');
+
+console.log(getdatos);
+
+// funcion para evitar inyecciones de script en inputs
+function escapeHTML(text) {
+    var map = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;'
+    };
+    return text.replace(/[&<>"']/g, function(m) { return map[m]; });
+}
+
+
+
+</script>
